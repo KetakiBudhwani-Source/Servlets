@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <!-- Filter A -->
+    <filter>
+        <filter-name>AFilter</filter-name>
+        <filter-class>com.ketaki.NameFilter</filter-class>
+    </filter>
+
+    <!-- Filter B -->
+    <filter>
+        <filter-name>BFilter</filter-name>
+        <filter-class>com.ketaki.IdFilter</filter-class>
+    </filter>
+
+    <!-- Servlet S -->
+    <servlet>
+        <servlet-name>Servlet1</servlet-name>
+        <servlet-class>com.ketaki.MyServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>Servlet1</servlet-name>
+        <url-pattern>/addPerson</url-pattern>
+    </servlet-mapping>
+
+    <!-- Filter Mappings -->
+    <filter-mapping>
+        <filter-name>AFilter</filter-name>
+        <url-pattern>/addPerson/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>BFilter</filter-name>
+        <url-pattern>/addPerson/*</url-pattern>
+    </filter-mapping>
+</web-app>
